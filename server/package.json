@@ -1,0 +1,17 @@
+{
+  "name": "open-movie",
+  "version": "1.0.0",
+  "description": "Apollo Project",
+  "main": "index.js",
+  "dependencies": {
+    "apollo-server": "^3.10.1",
+    "graphql": "^16.5.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest",
+    "start": "nodemon src/index.js"
+  },
+  "author": "Mario Quintana",
+  "license": "ISC"
+}

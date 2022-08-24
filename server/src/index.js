@@ -1,7 +1,17 @@
 const { ApolloServer } = require('apollo-server');
 const typeDefs = require('./schema');
+const resolvers = require('./resolvers');
+const MovieAPI = require('./datasources/movie-api');
 
-const server = new ApolloServer({typeDefs});
+const server = new ApolloServer({
+    typeDefs, 
+    resolvers,
+    dataSources: () => {
+        return {
+            movieAPI: new MovieAPI(),
+        }
+    }
+});
 
 server.listen().then(() => {
     console.log(`

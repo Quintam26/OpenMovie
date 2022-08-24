@@ -4,10 +4,11 @@
   "description": "Apollo Project",
   "main": "index.js",
   "dependencies": {
+    "apollo-datasource-rest": "^3.6.1",
     "apollo-server": "^3.10.1",
+    "dotenv": "^16.0.1",
     "graphql": "^16.5.0"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "jest",
     "start": "nodemon src/index.js"

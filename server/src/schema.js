@@ -6,7 +6,21 @@ const typeDefs = gql`
         getMovieById(imdbID: ID!): Movie!
         "Query to get a movie by their title"
         getMovieByTitle(Title: String!): Movie!
-    }
+         ### User accounts
+        user(id: ID!): User
+        "Currently logged-in user"
+        me: User!
+}
+
+    #### User accounts
+
+    interface User {
+        id: ID!
+        "The user's first and last name"
+        name: String!
+        "The user's profile photo URL"
+        profilePicture: String!
+}
 
     type Movie {
         "The movie's imdb ID"
@@ -27,6 +41,7 @@ const typeDefs = gql`
         Source: String!
         Value: String!
     }
+    
 `
 
 module.exports = typeDefs;

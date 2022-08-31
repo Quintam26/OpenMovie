@@ -6,6 +6,8 @@ const typeDefs = gql`
         getMovieById(imdbID: ID!): Movie!
         "Query to get a movie by their title"
         getMovieByTitle(Title: String!): Movie!
+        "Query to get reviews for a Movie"
+        getReviewsByMovieTitle(display_title: String!): [Review]
     }
 
     type Movie {
@@ -26,6 +28,16 @@ const typeDefs = gql`
     type Rating {
         Source: String!
         Value: String!
+    }
+
+    type Review {
+        headline: String!
+        summary_short: String!
+        link: [Link]!
+    }
+
+    type Link {
+        url: String!
     }
 `
 

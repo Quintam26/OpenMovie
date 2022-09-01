@@ -1,7 +1,10 @@
 const resolvers = {
     Query: {     
-        getMovieByTitle: (_,{Title}, {dataSources}) => {
-            return dataSources.movieAPI.getMovieByTitle(Title);
+        getReviews:(_, __, {dataSources}) => {
+            return dataSources.reviewAPI.getReviews();
+        },
+        getReviewsByMovie: (_,{name}, {dataSources}) => {
+            return dataSources.reviewAPI.getReviewsByMovie(name);
         }
     },
 };

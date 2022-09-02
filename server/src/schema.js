@@ -6,7 +6,6 @@ const typeDefs = gql`
         getMovieById(imdbID: ID!): Movie!
         "Query to get a movie by their title"
         getMovieByTitle(Title: String!): Movie!
-
         "Query to get movie reviews"
         getReviews: Review!
         "Query to get reviews based on movie title"

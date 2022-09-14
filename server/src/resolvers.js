@@ -14,6 +14,12 @@ const resolvers = {
         getReviewsByMovie: (_,{name}, {dataSources}) => {
             return dataSources.reviewAPI.getReviewsByMovie(name);
         }
+    },
+
+    Movie: {
+        reviews: ({Title}, __, {dataSources}) => {
+            return dataSources.reviewAPI.getReviewsByMovie(Title);
+        }
     }
 };
 

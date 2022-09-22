@@ -32,7 +32,7 @@ const typeDefs = gql`
     type Rating {
         Source: String!
         Value: String!
-    }
+    } 
 
     type Review {
         results: [Results]

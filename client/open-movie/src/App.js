@@ -1,12 +1,13 @@
 // Import everything needed to use the `useQuery` hook
 import { useQuery, gql } from '@apollo/client';
+import React, { useState } from "react";
 
 export default function App() {
   return (
     <div>
       <h2>My first Apollo app 🚀</h2>
       <br/>
-      <DisplayMovie />
+      <DisplayMovie setTitleInput = {setTitleInput}/>
     </div>
   );
 }
@@ -27,9 +28,12 @@ export const GET_MOVIES_BY_TITLE = gql`
 }
 `;
 
-function DisplayMovie() {
-  const { loading, error, data } = useQuery(GET_MOVIES_BY_TITLE);
+const [titleInput, setTitleInput] = useState();
 
+function DisplayMovie() {
+  const { loading, error, data, } = useQuery(GET_MOVIES_BY_TITLE, variables, {
+    title: titleInput,
+  },);
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 

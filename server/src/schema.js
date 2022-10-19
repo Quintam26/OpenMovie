@@ -3,18 +3,18 @@ const { gql } = require('apollo-server')
 const typeDefs = gql`
     type Query {
         "Query to get a movie by their imdbID"
-        getMovieById(imdbID: ID!): Movie!
+        getMovieById (imdbID: ID!): Movie!
         "Query to get a movie by their title"
-        getMovieByTitle(Title: String!): Movie!
+        getMovieByTitle (Title: String!): Movie!
         "Query to get movie reviews"
         getReviews: Review!
         "Query to get reviews based on movie title"
-        getReviewsByMovie(name:String!): Review
+        getReviewsByMovie (name:String!): Review
     }
 
     type Movie {
         "The movie's imdb ID"
-        imdbID: String!
+        imdbID: ID!
         "The movie's title"
         Title: String!
         "The movie's director"

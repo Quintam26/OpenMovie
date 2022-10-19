@@ -25,6 +25,8 @@ const typeDefs = gql`
         Poster: String!
         "The movie's critic ratings"
         Ratings: [Rating]!
+        "The revoiews for a movie"
+        reviews: Review    
     }
 
     type Rating {

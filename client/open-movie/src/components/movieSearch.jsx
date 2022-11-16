@@ -24,13 +24,13 @@ export default function MovieSearch() {
     variables: { title: titleInput },
   });
 
-  // console.log(titleInput);
+  console.log("titleInput = ",titleInput);
   
   return (
     <div>
       <div>
         <label>Movie Search</label>
-        <input type="text" onChange={event => console.log(setTitleInput(event.target.value))} />
+        <input type="text" onChange={event => console.log("setTitleInut = ",setTitleInput(event.target.value))} />
       </div>
 
       {data &&

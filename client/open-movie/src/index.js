@@ -29,7 +29,7 @@ client
     }
     `,
   })
-  .then((result) => console.log(result));
+  .then((result) => console.log("Query from index.js = ", result));
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

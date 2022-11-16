@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useQuery, gql } from "@apollo/client";
 
-const GET_MOVIE_BY_TITLE = gql`
-  query getMovieByTitle($title: String!) {
+const GET_MOVIE_BY_TITLE =  gql`
+  query GetMovieByTitle($title: String!) {
     getMovieByTitle(Title: $title) {
       imdbID
       Title
@@ -30,7 +30,7 @@ export default function MovieSearch() {
     <div>
       <div>
         <label>Movie Search</label>
-        <input type="text" onChange={event => console.log("setTitleInut = ",setTitleInput(event.target.value))} />
+        <input type="text" onChange={event => console.log("setTitleInput = ",setTitleInput(event.target.value))} />
       </div>
 
       {data &&

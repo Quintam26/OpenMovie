@@ -22,12 +22,30 @@ client
   .query({
     query: gql`
     query GetMovieByTitle($title: String!) {
-      getMovieByTitle(Title: "Taxi") {
-        Title
+      getMovieByTitle(Title: $title) {
         Director
+    Poster
+    Ratings {
+      Source
+      Value
+    }
+    Year
+    imdbID
+    reviews {
+      results {
+        display_title
+        headline
+        link {
+          suggested_link_text
+          url
+        }
+        summary_short
       }
     }
+  }
+}
     `,
+    variables: {"title": "The Godfather"}
   })
   .then((result) => console.log("Query from index.js = ", result));
 

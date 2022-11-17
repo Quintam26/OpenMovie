@@ -1,20 +1,15 @@
 import { useState } from "react";
 import { useQuery, gql } from "@apollo/client";
 
-const GET_MOVIE_BY_TITLE =  gql`
+const GET_MOVIE_BY_TITLE = gql`
   query GetMovieByTitle($title: String!) {
-    getMovieByTitle(Title: $title) {
-      imdbID
-      Title
-      Director
-      Year
-      Ratings {
-        Value
-        Source
-      }
-      Poster
-    }
+  getMovieByTitle(Title: $title) {
+    Director
+    Poster
+    Year
+    imdbID
   }
+}
 `;
 
 export default function MovieSearch() {
@@ -23,36 +18,32 @@ export default function MovieSearch() {
   const { loading, error, data } = useQuery(GET_MOVIE_BY_TITLE, {
     variables: { title: titleInput },
   });
-
+  
   console.log("titleInput = ",titleInput);
+  
+  // if (loading) return null;
+  // if (error) return `Error! ${error}`;
   
   return (
     <div>
       <div>
-        <label>Movie Search</label>
-        <input type="text" onChange={event => console.log("setTitleInput = ",setTitleInput(event.target.value))} />
+        <label>
+          Movie Title:
+          <input type="text" onChange={event => {
+            event.preventDefault();
+            setTitleInput(event.currentTarget.value)}}/>
+        </label>
+        
       </div>
-
-      {data &&
-        data.movie.map(({ imdbID, Title, Rating, Poster }) => (
-          <div>
-            <div key={imdbID}>
-              <h3>{Title}</h3>
-              <img
-                width="400"
-                height="250"
-                alt="location-reference"
-                src={`${Poster}`}
-                />
-              <br />
-              <b>Ratings for this movie:</b>
-              <p>{Rating}</p>
-              <br />
-            </div>
-          </div>
-      ))}
-      {loading && <p>Loading...</p>}
-      {error && <p>Error :(</p>}
+      
+     {data && 
+      <div>
+        <p>Director: {data.getMovieByTitle.Director}</p>
+        <p>Year: {data.getMovieByTitle.Year}</p>
+        <p>Ratings: {data.getMovieByTitle.Ratings}</p>
+        <img src={data.getMovieByTitle.Poster} alt="None"/>
+      </div>
+     }
     </div>
   );
 }

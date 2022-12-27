@@ -70,20 +70,22 @@ export default function MovieSearch() {
         <p><b>Ratings: </b> 
           {data.getMovieByTitle.Ratings && data.getMovieByTitle.Ratings.map((rating, index) => {
             return (
-              <li key={index}>
+              <p key={index}>
                 {rating.Source}
-
-              </li>
+                <br/>
+                {rating.Value}
+              </p>
             )
           })}
         </p>
         <p><b>Reviews: </b> 
-          {data.getMovieByTitle.reviews.results && data.getMovieByTitle.reviews.results.map((result, index) => {
+          {data.getMovieByTitle.reviews.results && data.getMovieByTitle.reviews.results.slice(0,3).map((result, index) => {
             return (
-              <li key={index}>
+              <p key={index}>
                 {result.display_title}
-                {result.link.url}
-              </li>
+                <br/>
+                <a href={result.link.url}>{result.link.url}</a>
+              </p>
             )
           })}
         </p>

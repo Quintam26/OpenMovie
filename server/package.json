@@ -6,8 +6,9 @@
   "dependencies": {
     "apollo-datasource-rest": "^3.6.1",
     "apollo-server": "^3.10.1",
-    "dotenv": "^16.0.1",
-    "graphql": "^16.5.0"
+    "dotenv": "^16.0.3",
+    "graphql": "^16.5.0",
+    "nodemon": "^2.0.20"
   },
   "scripts": {
     "test": "jest",
